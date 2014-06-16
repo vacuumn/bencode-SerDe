@@ -42,7 +42,6 @@ public class BEncodeTest {
         //decode should give known result with known input
         for (Map.Entry<? extends BElement, String> knownValue : knownValues) {
             List<BElement> result = bEncode.decode(knownValue.getValue());
-            System.out.println(knownValue.getValue() + " result: " + result.get(0));
             assertEquals(knownValue.getKey(), result.iterator().next());
         }
     }
@@ -52,7 +51,6 @@ public class BEncodeTest {
         //encode should give known result with known input
         for (Map.Entry<? extends BElement, String> knownValue : knownValues) {
             String result = bEncode.encode(knownValue.getKey());
-            System.out.println(knownValue.getValue() + " result: " + result);
             assertEquals(knownValue.getValue(), result);
         }
     }
