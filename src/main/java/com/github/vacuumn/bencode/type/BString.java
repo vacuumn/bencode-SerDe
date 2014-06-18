@@ -1,6 +1,9 @@
 package com.github.vacuumn.bencode.type;
 
 /**
+ * Bencoded Strings implementation.
+ * @see <a href="http://wiki.theory.org/BitTorrentSpecification#Bencoded_Strings">Specification</a>
+ *
  * @author vacuumn@gmail.com
  */
 public class BString implements BElement,Comparable<BString> {

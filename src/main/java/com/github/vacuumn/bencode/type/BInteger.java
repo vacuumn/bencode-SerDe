@@ -1,6 +1,9 @@
 package com.github.vacuumn.bencode.type;
 
 /**
+ * Bencoded Integers implementation.
+ * @see <a href="https://wiki.theory.org/BitTorrentSpecification#Integers">Specification</a>
+ *
  * @author vacuumn@gmail.com
  */
 public class BInteger implements BElement {

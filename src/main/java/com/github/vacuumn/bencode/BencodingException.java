@@ -3,6 +3,7 @@ package com.github.vacuumn.bencode;
 import java.io.IOException;
 
 /**
+ * Signals that error was occurted during decoding/encoding to/from bencoded format.
  * @author vacuumn@gmail.com
  */
 public class BencodingException extends IOException {

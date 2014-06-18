@@ -3,6 +3,8 @@ package com.github.vacuumn.bencode;
 import com.github.vacuumn.bencode.type.*;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Map;
@@ -14,12 +16,28 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author vacuumn@gmail.com
  */
 public class BEncode {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
+    /**
+     * Encode any known BElement to bencode format.
+     * @param bElement element to endode
+     * @return bencoded string
+     */
     public String encode(BElement bElement) {
-        return bElement.encode();
+        logger.info("Encoding element: {}", bElement);
+        String encoded = bElement.encode();
+        logger.info("Finished encoding bElement : {}, result: {}", bElement, encoded);
+        return encoded;
     }
 
+    /**
+     * Decode string to known elements.
+     * @param encoded bencoded string to decode
+     * @return list of decoded elements
+     * @throws BencodingException in case of decoding error or wrong input string
+     */
     public List<BElement> decode(String encoded) throws BencodingException {
+        logger.info("Decoding string : {}", encoded);
         if (encoded == null) return null;
         AtomicInteger index = new AtomicInteger(0);
         List<BElement> elements = Lists.newArrayList();
@@ -30,9 +48,10 @@ public class BEncode {
             }
             if (index.get() != encoded.length())
                 throw new BencodingException("invalid bencoded value (data after valid prefix)");
+            logger.info("Finished decoding string : {}, result: {}", encoded, elements);
             return elements;
         } catch (BencodingException e) {
-            //TODO: add logger
+            logger.error(e.getMessage(), e);
             throw e;
         }
     }

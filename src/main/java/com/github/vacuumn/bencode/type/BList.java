@@ -5,6 +5,9 @@ import com.google.common.collect.ImmutableList;
 import java.util.List;
 
 /**
+ * Bencoded List implementation.
+ * @see <a href="https://wiki.theory.org/BitTorrentSpecification#Lists">Specification</a>
+ *
  * @author vacuumn@gmail.com
  */
 public class BList implements BElement {

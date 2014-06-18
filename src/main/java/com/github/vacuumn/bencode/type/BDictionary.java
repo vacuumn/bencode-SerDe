@@ -5,6 +5,9 @@ import com.google.common.collect.ImmutableSortedMap;
 import java.util.Map;
 
 /**
+ * Bencoded Dictionaries implementation.
+ * @see <a href="https://wiki.theory.org/BitTorrentSpecification#Dictionaries">Specification</a>
+ *
  * @author vacuumn@gmail.com
  */
 public class BDictionary implements BElement {
